@@ -26,7 +26,7 @@
           <input type="text" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎"/>
         </div>
         <div class="form-group">
-          <font for="tel">連絡先TEL <font color="red">※半角(ハイフンなし 　例　09012345678)</font></label>
+          <label for="tel">連絡先TEL <font color="red">※半角(ハイフンなし 　例　09012345678)</font></label>
           <input type="tel" id="tel" name="tel" th:field="*{tel}" class="form-control" value="03-1234-5678"/>
         </div>
         <div class="form-group">
@@ -60,20 +60,81 @@
         <legend>荷物情報</legend>
         <div class="form-group">
           <label for="box">段ボールの個数</label>
-          <input type="text" id="box" name="box" th:field="*{box}" class="form-control" value="10"/>
+          <select id="box" name="box">
+            <option th:value="0">0</option>
+            <option th:value="1">1</option>
+            <option th:value="2">2</option>
+            <option th:value="3">3</option>
+            <option th:value="4">4</option>
+            <option th:value="5">5</option>
+            <option th:value="6">6</option>
+            <option th:value="6">6</option>
+            <option th:value="7">7</option>
+            <option th:value="8">8</option>
+            <option th:value="9">9</option>
+            <option th:value="10">10</option>
+            <option th:value="11">11</option>
+            <option th:value="12">12</option>
+            <option th:value="13">13</option>
+            <option th:value="14">14</option>
+            <option th:value="15">15</option>
+            <option th:value="16">16</option>
+            <option th:value="17">17</option>
+            <option th:value="18">18</option>
+            <option th:value="19">19</option>
+            <option th:value="20">20</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="bed">ベッドの個数</label>
-          <input type="text" id="bed" name="bed" th:field="*{bed}" class="form-control" value="3"/>
+          <select id="bed" name="bed">
+            <option th:value="0">0</option>
+            <option th:value="1">1</option>
+            <option th:value="2">2</option>
+            <option th:value="3">3</option>
+            <option th:value="4">4</option>
+            <option th:value="5">5</option>
+            <option th:value="6">6</option>
+            <option th:value="6">6</option>
+            <option th:value="7">7</option>
+            <option th:value="8">8</option>
+            <option th:value="9">9</option>
+            <option th:value="10">10</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="bicycle">自転車の個数</label>
-          <input type="text" id="bicycle" name="bicycle" th:field="*{bicycle}" class="form-control" value="1"/>
+          <select id="bicycle" name="bicycle">
+          <option th:value="0">0</option>
+          <option th:value="1">1</option>
+          <option th:value="2">2</option>
+          <option th:value="3">3</option>
+          <option th:value="4">4</option>
+          <option th:value="5">5</option>
+          <option th:value="6">6</option>
+          <option th:value="6">6</option>
+          <option th:value="7">7</option>
+          <option th:value="8">8</option>
+          <option th:value="9">9</option>
+          <option th:value="10">10</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="washingMachine">洗濯機の個数</label>
-          <input type="text" id="washingMachine" name="washingMachine" th:field="*{washingMachine}" class="form-control"
-                 value="1"/>
+          <select id="washingMachine" name="washingMachine">
+            <option th:value="0">0</option>
+            <option th:value="1">1</option>
+            <option th:value="2">2</option>
+            <option th:value="3">3</option>
+            <option th:value="4">4</option>
+            <option th:value="5">5</option>
+            <option th:value="6">6</option>
+            <option th:value="6">6</option>
+            <option th:value="7">7</option>
+            <option th:value="8">8</option>
+            <option th:value="9">9</option>
+            <option th:value="10">10</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="washingMachineInstallation">洗濯機の設置工事申し込み</label>
