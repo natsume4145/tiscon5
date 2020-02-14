@@ -22,15 +22,15 @@
       <fieldset>
         <legend>個人情報</legend>
         <div class="form-group">
-          <label for="customerName">氏名 ※全角</label>
+          <label for="customerName">氏名 <font color="red">※全角</font></label>
           <input type="text" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎"/>
         </div>
         <div class="form-group">
-          <label for="tel">連絡先TEL ※半角(ハイフンなし 　例　09012345678)</label>
+          <font for="tel">連絡先TEL <font color="red">※半角(ハイフンなし 　例　09012345678)</font></label>
           <input type="tel" id="tel" name="tel" th:field="*{tel}" class="form-control" value="03-1234-5678"/>
         </div>
         <div class="form-group">
-          <label for="email">連絡先メールアドレス ※半角</label>
+          <label for="email">連絡先メールアドレス <font color="red">※半角</font></label>
           <input type="text" id="email" name="email" th:field="*{email}" class="form-control" value="test@test.com"/>
         </div>
         <div class="form-group">
