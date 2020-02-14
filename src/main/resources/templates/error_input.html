@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <label for="customerName">氏名 <font color="red">※全角</font></label>
                     <ul th:if="${#fields.hasErrors('customerName')}">
-                        <input type="text" style="background-color:#red;" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎"/>
+                        <input type="text" style="border-color:#FF0000;border-width:2px" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎"/>
                     </ul>
                 </div>
                 <div class="form-group">
