@@ -16,14 +16,16 @@
     <form th:action="@{/submit}" th:object="${userOrderForm}" class="form-horizontal" method="post">
         <h1>お見積り情報入力<br><font color="red">入力にエラーがあります</font></h1>
         <ul th:if="${#fields.hasErrors('all')}">
-            <li th:each="err : ${#fields.errors('all')}" th:text="${err}"></li>
+            <!--<li th:each="err : ${#fields.errors('all')}" th:text="${err}"></li>-->
         </ul>
         <div class="col-sm-12">
             <fieldset>
                 <legend>個人情報</legend>
                 <div class="form-group">
                     <label for="customerName">氏名 <font color="red">※全角</font></label>
-                    <input type="text" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎"/>
+                    <ul th:if="${#fields.hasErrors('customerName')}">
+                        <input type="text" style="background-color:#red;" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎"/>
+                    </ul>
                 </div>
                 <div class="form-group">
                     <font for="tel">連絡先TEL <font color="red">※半角(ハイフンなし 　例　09012345678)</font></label>
