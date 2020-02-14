@@ -16,22 +16,37 @@
     <form th:action="@{/submit}" th:object="${userOrderForm}" class="form-horizontal" method="post">
         <h1>お見積り情報入力<br><font color="red">入力にエラーがあります</font></h1>
         <ul th:if="${#fields.hasErrors('all')}">
-            <li th:each="err : ${#fields.errors('all')}" th:text="${err}"></li>
+            <!--<li th:each="err : ${#fields.errors('all')}" th:text="${err}"></li>-->
         </ul>
         <div class="col-sm-12">
             <fieldset>
                 <legend>個人情報</legend>
                 <div class="form-group">
                     <label for="customerName">氏名 <font color="red">※全角</font></label>
-                    <input type="text" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎"/>
+                    <ul th:if="${#fields.hasErrors('customerName')}">
+                        <input type="text" style="border-color:#FF0000;border-width:2px" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎"/>
+                    </ul>
+                    <ul th:unless="${#fields.hasErrors('customerName')}">
+                        <input type="text" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎"/>
+                    </ul>
                 </div>
                 <div class="form-group">
                     <font for="tel">連絡先TEL <font color="red">※半角(ハイフンなし 　例　09012345678)</font></label>
-                        <input type="tel" id="tel" name="tel" th:field="*{tel}" class="form-control" value="03-1234-5678"/>
+                        <ul th:if="${#fields.hasErrors('tel')}">
+                            <input type="tel" style="border-color:#FF0000;border-width:2px" id="tel" name="tel" th:field="*{tel}" class="form-control" value="03-1234-5678"/>
+                        </ul>
+                        <ul th:unless="${#fields.hasErrors('tel')}">
+                            <input type="tel" id="tel" name="tel" th:field="*{tel}" class="form-control" value="03-1234-5678"/>
+                        </ul>
                 </div>
                 <div class="form-group">
                     <label for="email">連絡先メールアドレス <font color="red">※半角</font></label>
-                    <input type="text" id="email" name="email" th:field="*{email}" class="form-control" value="test@test.com"/>
+                    <ul th:if="${#fields.hasErrors('email')}">
+                        <input type="text" style="border-color:#FF0000;border-width:2px" id="email" name="email" th:field="*{email}" class="form-control" value="test@test.com"/>
+                    </ul>
+                    <ul th:unless="${#fields.hasErrors('email')}">
+                        <input type="text" id="email" name="email" th:field="*{email}" class="form-control" value="test@test.com"/>
+                    </ul>
                 </div>
                 <div class="form-group">
                     <label for="oldPrefectureId">転居元住所（都道府県）</label>
@@ -41,8 +56,15 @@
                 </div>
                 <div class="form-group">
                     <label for="oldAddress">転居元住所（市区町村以下）</label>
-                    <input type="text" id="oldAddress" name="oldAddress" th:field="*{oldAddress}"
+                    <ul th:if="${#fields.hasErrors('oldAddress')}">
+                        <input type="text" style="border-color:#FF0000;border-width:2px" id="oldAddress" name="oldAddress" th:field="*{oldAddress}"
                            class="form-control" value="新宿区西新宿1-1-1"/>
+                    </ul>
+                    <ul th:unless="${#fields.hasErrors('oldAddress')}">
+                        <input type="text" id="oldAddress" name="oldAddress" th:field="*{oldAddress}"
+                               class="form-control" value="新宿区西新宿1-1-1"/>
+                    </ul>
+
                 </div>
                 <div class="form-group">
                     <label for="newPrefectureId">転居先住所（都道府県）</label>
@@ -52,8 +74,14 @@
                 </div>
                 <div class="form-group">
                     <label for="newAddress">転居先住所（市区町村以下）</label>
-                    <input type="text" id="newAddress" name="newAddress" th:field="*{newAddress}" class="form-control"
+                    <ul th:if="${#fields.hasErrors('newAddress')}">
+                        <input type="text" style="border-color:#FF0000;border-width:2px" id="newAddress" name="newAddress" th:field="*{newAddress}" class="form-control"
                            value="札幌市南区1"/>
+                    </ul>
+                    <ul th:unless="${#fields.hasErrors('newAddress')}">
+                        <input type="text" id="newAddress" name="newAddress" th:field="*{newAddress}" class="form-control"
+                               value="札幌市南区1"/>
+                    </ul>
                 </div>
             </fieldset>
             <fieldset>
