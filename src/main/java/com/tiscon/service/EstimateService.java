@@ -7,6 +7,7 @@ import com.tiscon.domain.Customer;
 import com.tiscon.domain.CustomerOptionService;
 import com.tiscon.domain.CustomerPackage;
 import com.tiscon.dto.UserOrderDto;
+import com.tiscon.dto.priceDto;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -69,30 +70,39 @@ public class EstimateService {
      * @param dto 見積もり依頼情報
      * @return 概算見積もり結果の料金
      */
-    public Integer getPrice(UserOrderDto dto) {
+    public priceDto getPrice(UserOrderDto dto) {
+        priceDto priceDto = new priceDto();
         double distance = estimateDAO.getDistance(dto.getOldPrefectureId(), dto.getNewPrefectureId());
         // 小数点以下を切り捨てる
         int distanceInt = (int) Math.floor(distance);
-
         // 距離当たりの料金を算出する
-        int priceForDistance = distanceInt * PRICE_PER_DISTANCE;
 
+        int priceForDistance = distanceInt * PRICE_PER_DISTANCE;
+        priceDto.setDistanceInt(priceForDistance);
         int boxes = getBoxForPackage(dto.getBox(), PackageType.BOX)
                 + getBoxForPackage(dto.getBed(), PackageType.BED)
                 + getBoxForPackage(dto.getBicycle(), PackageType.BICYCLE)
                 + getBoxForPackage(dto.getWashingMachine(), PackageType.WASHING_MACHINE);
 
+
         // 箱に応じてトラックの種類が変わり、それに応じて料金が変わるためトラック料金を算出する。
         int pricePerTruck = estimateDAO.getPricePerTruck(boxes);
+        priceDto.setPricePerTruck(pricePerTruck);
 
         // オプションサービスの料金を算出する。
         int priceForOptionalService = 0;
 
         if (dto.getWashingMachineInstallation()) {
             priceForOptionalService = estimateDAO.getPricePerOptionalService(OptionalServiceType.WASHING_MACHINE.getCode());
-        }
 
-        return priceForDistance + pricePerTruck + priceForOptionalService;
+        }
+        priceDto.setPriceForOptionalService(priceForOptionalService);
+
+        return priceDto;
+
+
+
+
     }
 
     /**
