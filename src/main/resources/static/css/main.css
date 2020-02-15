@@ -17,8 +17,13 @@ body {
 }
 
 .btn-primary {
-    background: #FBC0AF;
-    border-color: #FBC0AF;
+    background: #F05E54;
+    border-color: #F05E54;
+    box-shadow: 2px 2px 3px 1px #666;
+    -moz-box-shadow: 2px 2px 3px 1px #666;
+    -webkit-box-shadow: 2px 2px 3px 1px #666;
+
+    text-shadow: 1px 1px 2px #000
 }
 
 .btn-top {
