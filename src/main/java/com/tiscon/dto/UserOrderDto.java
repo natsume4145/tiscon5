@@ -3,6 +3,8 @@ package com.tiscon.dto;
 public class UserOrderDto {
     private String customerName;
 
+    private String customerNameKana;
+
     private String tel;
 
     private String email;
@@ -31,6 +33,14 @@ public class UserOrderDto {
 
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
+    }
+
+    public String getCustomerNameKana() {
+        return customerNameKana;
+    }
+
+    public void setCustomerNameKana(String customerName) {
+        this.customerNameKana = customerNameKana;
     }
 
     public String getTel() {
