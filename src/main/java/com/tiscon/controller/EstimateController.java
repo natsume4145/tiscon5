@@ -128,12 +128,12 @@ public class EstimateController {
     //エラーチェックの場所を変える
     @PostMapping(value = "result", params = "calculation")
     String calculation(@Validated UserOrderForm userOrderForm, BindingResult result, Model model) {
-        if (result.hasErrors()) {
+        /*if (result.hasErrors()) {
 
             model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
             model.addAttribute("userOrderForm", userOrderForm);
             return "confirm";
-        }
+        }*/
 
         //料金の計算を行う。
         UserOrderDto dto = new UserOrderDto();

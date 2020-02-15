@@ -12,6 +12,8 @@ public class Customer implements Serializable {
 
     private String customerName;
 
+    private String customerNameKana;
+
     private String tel;
 
     private String email;
@@ -50,6 +52,14 @@ public class Customer implements Serializable {
 
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
+    }
+
+    public String getCustomerNameKana() {
+        return customerNameKana;
+    }
+
+    public void setCustomerNameKana(String customerNameKana) {
+        this.customerNameKana = customerNameKana;
     }
 
     public String getTel() {
