@@ -70,21 +70,12 @@ public class EstimateController {
 
     /**
      * 確認画面に遷移する。
+     * エラーがある場合はエラー通知する。
      *
      * @param userOrderForm 顧客が入力した見積もり依頼情報
      * @param model         遷移先に連携するデータ
      * @return 遷移先
      */
-    //エラーチェックする
-    /*
-    @PostMapping(value = "submit", params = "confirm")
-    String confirm(UserOrderForm userOrderForm, Model model) {
-
-        model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
-        model.addAttribute("userOrderForm", userOrderForm);
-        return "confirm";
-    }
-    */
     @PostMapping(value = "submit", params = "confirm")
     String confirm(@Validated UserOrderForm userOrderForm, BindingResult result, Model model) {
         if (result.hasErrors()) {

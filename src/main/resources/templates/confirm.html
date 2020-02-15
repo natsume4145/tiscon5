@@ -25,9 +25,14 @@
         <col span="2" style="background-color: #FFFFFF;">
         <tbody>
         <tr>
-          <th style="width: 40%">氏名</th>
+          <th style="width: 40%">氏名(漢字)</th>
           <td><span th:text="*{customerName}"></span></td>
           <input type="hidden" name="customerName" id="customerName" th:value="*{customerName}"/>
+        </tr>
+        <tr>
+          <th style="width: 40%">氏名(フリガナ)</th>
+          <td><span th:text="*{customerNameKana}"></span></td>
+          <input type="hidden" name="customerNameKana" id="customerNameKana" th:value="*{customerNameKana}"/>
         </tr>
         <tr>
           <th>連絡先TEL</th>
