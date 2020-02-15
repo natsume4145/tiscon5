@@ -37,7 +37,7 @@ public class EstimateDao {
      * @return 登録件数
      */
     public int insertCustomer(Customer customer) {
-        String sql = "INSERT INTO CUSTOMER(OLD_PREFECTURE_ID, NEW_PREFECTURE_ID, CUSTOMER_NAME, CUSTOMER_NAMEKANA, TEL, EMAIL, OLD_ADDRESS, NEW_ADDRESS)"
+        String sql = "INSERT INTO CUSTOMER(OLD_PREFECTURE_ID, NEW_PREFECTURE_ID, CUSTOMER_NAME, CUSTOMER_NAME_KANA, TEL, EMAIL, OLD_ADDRESS, NEW_ADDRESS)"
                 + " VALUES(:oldPrefectureId, :newPrefectureId, :customerName, :customerNameKana, :tel, :email, :oldAddress, :newAddress)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int resultNum = parameterJdbcTemplate.update(sql, new BeanPropertySqlParameterSource(customer), keyHolder);

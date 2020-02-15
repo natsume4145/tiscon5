@@ -39,7 +39,7 @@ public class UserOrderDto {
         return customerNameKana;
     }
 
-    public void setCustomerNameKana(String customerNameKana) {
+    public void setCustomerNameKana(String customerName) {
         this.customerNameKana = customerNameKana;
     }
 

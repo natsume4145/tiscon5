@@ -2,6 +2,7 @@ package com.tiscon.controller;
 
 import com.tiscon.dao.EstimateDao;
 import com.tiscon.dto.UserOrderDto;
+import com.tiscon.dto.priceDto;
 import com.tiscon.form.UserOrderForm;
 import com.tiscon.service.EstimateService;
 import org.springframework.beans.BeanUtils;
@@ -138,11 +139,16 @@ public class EstimateController {
         //料金の計算を行う。
         UserOrderDto dto = new UserOrderDto();
         BeanUtils.copyProperties(userOrderForm, dto);
-        Integer price = estimateService.getPrice(dto);
+        priceDto price = estimateService.getPrice(dto);
+
 
         model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
         model.addAttribute("userOrderForm", userOrderForm);
-        model.addAttribute("price", price);
+        model.addAttribute("trackprice", price.getDistanceInt());
+        model.addAttribute("bagprice", price.getPricePerTruck());
+        model.addAttribute("setprice", price.getPriceForOptionalService());
+        model.addAttribute("price", price.getDistanceInt()+price.getPricePerTruck()+price.getPriceForOptionalService());
+
         return "result";
     }
 
@@ -156,17 +162,17 @@ public class EstimateController {
      */
     @PostMapping(value = "order", params = "complete")
     String complete(@Validated UserOrderForm userOrderForm, BindingResult result, Model model) {
-        if (result.hasErrors()) {
+        /*if (result.hasErrors()) {
 
             model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
             model.addAttribute("userOrderForm", userOrderForm);
             return "confirm";
-        }
+        }*/
 
-        UserOrderDto dto = new UserOrderDto();
+        /*UserOrderDto dto = new UserOrderDto();
         BeanUtils.copyProperties(userOrderForm, dto);
         estimateService.registerOrder(dto);
-
+*/
         return "complete";
     }
 
