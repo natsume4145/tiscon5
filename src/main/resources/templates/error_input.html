@@ -71,6 +71,8 @@
                         <option th:each="prefecture : ${prefectures}" th:value="${prefecture.prefectureId}" th:field="*{oldPrefectureId}">[[${prefecture.prefectureName}]]</option>
                     </select>
                 </div>
+                <label for="oldPrefectureId">転居元郵便番号<font color="red">（ハイフンなし）</font></label><br>
+                <input type="text" name="zip11" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','oldAddress','oldAddress');">
                 <div class="form-group">
                     <label for="oldAddress">転居元住所（市区町村以下）</label>
                     <!--エラーがある場合はエラー用表示-->
@@ -91,6 +93,8 @@
                         <option th:each="prefecture : ${prefectures}" th:value="${prefecture.prefectureId}" th:field="*{newPrefectureId}">[[${prefecture.prefectureName}]]</option>
                     </select>
                 </div>
+                <label for="oldPrefectureId">転居先郵便番号<font color="red">（ハイフンなし）</font></label><br>
+                <input type="text" name="zip11" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','newAddress','newAddress');">
                 <div class="form-group">
                     <label for="newAddress">転居先住所（市区町村以下）</label>
                     <!--エラーがある場合はエラー用表示-->
