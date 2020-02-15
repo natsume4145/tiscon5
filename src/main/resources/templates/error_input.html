@@ -22,7 +22,7 @@
             <fieldset>
                 <legend>個人情報</legend>
                 <div class="form-group">
-                    <label for="customerName">氏名 <font color="red">※全角</font></label>
+                    <label for="customerName">氏名(漢字) <font color="red">※全角</font></label>
                     <!--エラーがある場合はエラー用表示-->
                     <div th:if="${#fields.hasErrors('customerName')}">
                         <input type="text" style="border-color:#FF0000;border-width:2px" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎"/>
@@ -30,6 +30,17 @@
                     <!--エラーがない場合は通常表示-->
                     <div th:unless="${#fields.hasErrors('customerName')}">
                         <input type="text" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="customerNameKana">氏名(フリガナ) <font color="red">※全角</font></label>
+                    <!--エラーがある場合はエラー用表示-->
+                    <div th:if="${#fields.hasErrors('customerNameKana')}">
+                        <input type="text" style="border-color:#FF0000;border-width:2px" id="customerNameKana" name="customerNameKana" th:field="*{customerNameKana}" class="form-control" value="ヤマダタロウ"/>
+                    </div>
+                    <!--エラーがない場合は通常表示-->
+                    <div th:unless="${#fields.hasErrors('customerNameKana')}">
+                        <input type="text" id="customerNameKana" name="customerNameKana" th:field="*{customerNameKana}" class="form-control" value="ヤマダタロウ"/>
                     </div>
                 </div>
                 <div class="form-group">
